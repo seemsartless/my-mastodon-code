@@ -2,11 +2,12 @@
 My code for working with the Mastodon API.
 
 ## client_1_read_details.py
-As simple as possible Python script to connect to a Mastodon server using an API key and reading details of recent posts by the corresponding user. No error checking, no great handling of the API key, but it gets the job done.
+As simple as possible Python script to connect to a Mastodon server using an API key and reading details of recent posts by the corresponding user. No error checking, not great handling of the API key, but it gets the job done.
 
 ###   1. Read local configuration file and get API key
 ###   2. Connect to Mastodon server
 ```
+    from mastodon import Mastodon
     m_object = Mastodon(access_token=m_access_token, api_base_url=m_base_url)`
 ```
 ###   3. Get details of the user associated with the token

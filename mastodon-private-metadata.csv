@@ -1,3 +1,5 @@
 variable_name, set_to
 mastodon-base-url,https://someserver.com
 access-token,abc123def789
+local-timezone,America/Toronto
+post-limit-hours,6.0

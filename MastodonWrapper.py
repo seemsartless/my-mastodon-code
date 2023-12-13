@@ -88,6 +88,28 @@ class MastodonWrapper:
                 print(f"\tReblog details: {i['reblog']}")
                 print(f"\tVisibility: {i['visibility']}")
 
+    def media_files(self, verbose=False):
+        """
+        List the media files already used by this user. (Does NOT include media files uploaded
+        but not actually used, unfortunately.
+        :param vebose: set to TRUE to have some debug and status info printed
+        :return: None
+        """
+        if not self.recent_toots:  # Don't want to read this again and again
+            print(f"Call account_status() to get recent toots") if verbose else None
+            self.recent_toots = self.m_object.account_statuses(id=self.user_id)
+
+        media_files = []
+        for status in self.recent_toots:
+            if 'media_attachments' in status:
+                # Should do more with this than just print it, but it is a start
+                media_files.extend(status['media_attachments'])
+        print("Details on the media used in this user's recent updates:")
+        for media in media_files:
+            # For all possible fields, see https://mastodonpy.readthedocs.io/en/stable/02_return_values.html#media-dicts
+            # TODO Add IF - different sorts of media have, or don't have, media['meta']['original']['size']
+            print(f"ID: {media['id']} ({media['type']} {media['meta']['original']['size']} px) \n\t{media['description']} \n\tURL: {media['url']}")
+
     def __repr__(self):
         """
         A string representation explaining the object

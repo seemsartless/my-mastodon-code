@@ -55,3 +55,6 @@ if hours_since_last_post > post_limit_hours:
     print(f"It has been {hours_since_last_post} hours since last post, which is more than the {post_limit_hours} minimum")
 else:
     print(f"Warning: It has only been been {hours_since_last_post} hours since the last post, which is less than the {post_limit_hours} minimum")
+
+# What are the details on recent updates with media attachments?
+m.media_files()

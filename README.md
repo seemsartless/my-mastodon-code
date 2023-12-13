@@ -22,8 +22,26 @@ As simple as possible Python script to connect to a Mastodon server using an API
         print(f"\nUser posting:: {i['content'][:100]}")
         print(f"\tTags: {i['tags']}")
 ```
-## client_2_read_details.py (tbd)
-With simple working code, it is time to create a simple Python object to make all of this work better.
+## client_2_read_details_w_object.py
+Starting with the basic code in client_1_read_details.py, move as much as possible to a 'wrapper' Mastodon object
+###   1. Read local configuration file and get API key
+###   2. Create our Mastodon Wrapper object, connected to the server
+```
+    m = MastodonWrapper(
+        base_url=m_base_url,
+        access_token=m_access_token,
+        time_zone=local_time_zone,
+        verbose=False
+    )
+```
+### 3. Print out the recent updates from the user associated with the token
+```
+    m.simple_recent()
+```
+### 4. Will add more methods to the wrapper object, like a calculation of how long it has been since the last post (based on time zone specified in `time_zone`)
+```
+    print(f"{m.hours_since_last_post()} hours since the last post.")
+```
 
 ## Reference
 https://mastodonpy.readthedocs.io/en/stable/index.html

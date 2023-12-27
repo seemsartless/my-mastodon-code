@@ -3,3 +3,5 @@ mastodon-base-url,https://someserver.com
 access-token,abc123def789
 local-timezone,America/Toronto
 post-limit-hours,6.0
+csv-file-location,/Users/MyUser/input/
+image-file-location,/Users/MyUser/raw_image_folder/

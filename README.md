@@ -1,5 +1,5 @@
 # my-mastodon-code
-My code for working with the Mastodon API.
+My Python code for working with the Mastodon API. I use this object in my (private) script to automate a daily #OTD posting from a CSV file to https://botsin.space/@torontohistoricphotos
 
 ## client_1_read_details.py
 As simple as possible Python script to connect to a Mastodon server using an API key and reading details of recent posts by the corresponding user. No error checking, not great handling of the API key, but it gets the job done.
